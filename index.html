@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Master</title>
+
+<link href="https://api.fontshare.com/v2/css?f[]=chillax@400,500,600,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Chillax', sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+}
+
+/* Navbar */
+.navbar{
+    width:100%;
+    height:75px;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 60px;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:700;
+    color:black;
+}
+
+.nav-links{
+    display:flex;
+    gap:40px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:black;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:#FF4400;
+}
+
+.auth-buttons{
+    display:flex;
+    gap:15px;
+}
+
+.btn{
+    padding:8px 22px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    font-weight:600;
+    color:white;
+}
+
+.login{
+    background:#262626;
+}
+
+.signup{
+    background:#8494FF;
+}
+
+/* Hamburger */
+.hamburger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+}
+
+.hamburger span{
+    width:25px;
+    height:3px;
+    background:black;
+}
+
+/* Mobile Menu */
+.mobile-menu{
+    position:fixed;
+    top:0;
+    right:-100%;
+    width:260px;
+    height:100vh;
+    background:white;
+    padding:40px 30px;
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+    transition:0.4s;
+    z-index:1001;
+}
+
+.mobile-menu a{
+    text-decoration:none;
+    color:black;
+    font-size:18px;
+    font-weight:500;
+}
+
+.mobile-menu a:hover{
+    color:#FF4400;
+}
+
+.mobile-auth{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin-top:20px;
+}
+
+/* Overlay */
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background:rgba(0,0,0,0.4);
+    display:none;
+    z-index:1000;
+}
+
+/* Responsive */
+@media(max-width:900px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .auth-buttons{
+        display:none;
+    }
+
+    .hamburger{
+        display:flex;
+    }
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Chillax', sans-serif;
+}
+
+body{
+    background:#ffffff;
+}
+
+/* Hero Section */
+.hero{
+    width:100%;
+    padding:120px 20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero-container{
+    max-width:900px;
+}
+
+.hero-icon img{
+    width:120px;
+    height:auto;
+    margin-bottom:40px;
+}
+
+/* Title */
+.hero-title{
+    font-size:64px;
+    font-weight:700;
+    margin-bottom:25px;
+    color:#000;
+}
+
+.hero-title span{
+    background:linear-gradient(90deg,#5B4BFF,#9F2BFF);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* Description */
+.hero-text{
+    font-size:20px;
+    color:#555;
+    line-height:1.7;
+}
+
+/* Responsive */
+@media(max-width:768px){
+
+    .hero-title{
+        font-size:38px;
+    }
+
+    .hero-text{
+        font-size:16px;
+    }
+
+    .hero-icon img{
+        width:90px;
+    }
+}
+/* Why Section */
+.why-section{
+    width:100%;
+    background:#ffffff;
+    padding:80px 20px;
+    text-align:center;
+}
+
+.why-container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.why-title{
+    font-size:40px;
+    font-weight:600;
+    color:#000;
+    margin-bottom:15px;
+}
+
+.why-subtitle{
+    font-size:18px;
+    color:#555;
+    margin-bottom:60px;
+}
+
+/* Cards */
+.why-cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.why-card{
+    background:#f2f2f2;
+    padding:35px 25px;
+    border-radius:15px;
+    transition:0.3s ease;
+    border:2px solid transparent;
+}
+
+.why-card:hover{
+    transform:translateY(-8px);
+    border-color:#2D3C59;
+}
+
+/* Icon */
+.icon-box{
+    width:60px;
+    height:60px;
+    margin:auto;
+    margin-bottom:20px;
+    background:#e6e6e6;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    color:#2D3C59;
+}
+
+.why-card h3{
+    font-size:20px;
+    margin-bottom:15px;
+    font-weight:600;
+}
+
+.why-card p{
+    font-size:16px;
+    color:#666;
+    line-height:1.6;
+}
+
+/* Responsive */
+@media(max-width:900px){
+    .why-cards{
+        grid-template-columns:1fr;
+    }
+}
+/* Footer */
+.footer{
+    width:100%;
+    background:#213448;
+    color:#ffffff;
+    padding:60px 20px;
+    text-align:center;
+}
+
+.footer-container{
+    max-width:800px;
+    margin:auto;
+}
+
+.footer-logo{
+    font-size:28px;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.footer-description{
+    font-size:16px;
+    color:#d0d6dd;
+    margin-bottom:30px;
+    line-height:1.6;
+}
+
+.footer-links{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin-bottom:30px;
+    flex-wrap:wrap;
+}
+
+.footer-links a{
+    text-decoration:none;
+    color:#ffffff;
+    font-size:15px;
+    transition:0.3s;
+}
+
+.footer-links a:hover{
+    color:#8494FF;
+}
+
+.footer-copy{
+    font-size:14px;
+    color:#b8c1cc;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .footer-links{
+        gap:15px;
+    }
+}
+.btn{
+    padding:8px 22px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    font-weight:600;
+    color:white;
+    text-decoration:none;   /* add this */
+    display:inline-block;   /* add this */
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Quiz Master</div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.php">Contact</a>
+    </div>
+
+    <div class="auth-buttons">
+    <a href="login.php" class="btn login">Login</a>
+    <a href="signup.php" class="btn signup">Sign Up</a>
+    </div>
+
+    <div class="hamburger" onclick="openMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.php">Contact</a>
+
+    <div class="mobile-auth">
+    <a href="login.php" class="btn login">Login</a>
+    <a href="signup.php" class="btn signup">Sign Up</a>
+    </div>
+</div>
+
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+<section class="hero">
+    <div class="hero-container">
+        
+        <div class="hero-icon">
+            <img src="i.png" alt="Quiz Icon">
+        </div>
+
+        <h1 class="hero-title">
+            Welcome to <span>Quiz Master</span>
+        </h1>
+
+        <p class="hero-text">
+            Challenge yourself with our comprehensive online quiz system. 
+            Test your knowledge, track your progress, and become a quiz master!
+        </p>
+
+    </div>
+</section>
+<!-- Why Choose Section -->
+<section class="why-section">
+    <div class="why-container">
+
+        <h2 class="why-title">Why Choose Quiz Master?</h2>
+        <p class="why-subtitle">
+            Everything you need for an engaging quiz experience
+        </p>
+
+        <div class="why-cards">
+
+            <div class="why-card">
+                <div class="icon-box">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <h3>Coding Practice Quizzes</h3>
+                <p>
+                    Test your programming knowledge with structured quizzes designed for beginners to advanced developers.
+                </p>
+            </div>
+
+            <div class="why-card">
+                <div class="icon-box">
+                    <i class="fa-solid fa-globe"></i>
+                </div>
+                <h3>Multiple Programming Languages</h3>
+                <p>
+                    Practice quizzes in PHP, JavaScript, Python, C++, Java, and more — all in one place.
+                </p>
+            </div>
+
+            <div class="why-card">
+                <div class="icon-box">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+                <h3>Instant Score & Feedback</h3>
+                <p>
+                    Get your results immediately after submission and track your coding progress.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+
+        <h2 class="footer-logo">Quiz Master</h2>
+
+        <p class="footer-description">
+            Generate AI-powered quizzes instantly on any topic. 
+            Challenge yourself and expand your knowledge effortlessly.
+        </p>
+
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.php">Contact</a>
+            <a href="login.php">Login</a>
+            <a href="signup.php">Signup</a>
+        </div>
+
+        <p class="footer-copy">
+            © 2026 Quiz Master. All Rights Reserved.
+        </p>
+
+    </div>
+</footer>
+<script>
+function openMenu(){
+    document.getElementById("mobileMenu").style.right = "0";
+    document.getElementById("overlay").style.display = "block";
+}
+
+function closeMenu(){
+    document.getElementById("mobileMenu").style.right = "-100%";
+    document.getElementById("overlay").style.display = "none";
+}
+</script>
+
+</body>
+</html>

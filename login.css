@@ -1,0 +1,126 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Chillax', sans-serif;
+}
+
+body{
+    background:#ffffff;
+}
+
+/* Center Wrapper */
+.login-wrapper{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+/* Card */
+.login-card{
+    width:400px;
+    background:#ffffff;
+    border-radius:15px;
+    padding:40px 35px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    text-align:center;
+}
+
+/* Icon Circle */
+.icon-circle{
+    width:65px;
+    height:65px;
+    background:#002455;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:0 auto 20px auto;
+    font-size:24px;
+    color:#ffffff;
+}
+
+/* Title */
+.login-title{
+    font-size:26px;
+    font-weight:600;
+    color:#000;
+    margin-bottom:8px;
+}
+
+.login-subtitle{
+    color:gray;
+    font-size:15px;
+    margin-bottom:25px;
+}
+
+/* Form */
+form{
+    text-align:left;
+}
+
+label{
+    font-size:14px;
+    font-weight:500;
+}
+
+input{
+    width:100%;
+    padding:12px 14px;
+    margin-top:6px;
+    margin-bottom:18px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    background:#f2f2f2;
+    font-size:14px;
+    transition:0.3s;
+}
+
+input:focus{
+    outline:none;
+    border-color:#002455;
+    background:#ffffff;
+}
+
+/* Button */
+.login-btn{
+    width:100%;
+    padding:12px;
+    background:#000000;
+    color:#ffffff;
+    border:none;
+    border-radius:12px;
+    font-size:15px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.login-btn:hover{
+    transform:translateY(-3px);
+}
+
+/* Register */
+.register-text{
+    text-align:center;
+    margin-top:20px;
+    font-size:14px;
+}
+
+.register-text a{
+    color:blue;
+    text-decoration:none;
+}
+
+.register-text a:hover{
+    text-decoration:underline;
+}
+
+/* Responsive */
+@media(max-width:480px){
+    .login-card{
+        width:100%;
+        padding:30px 20px;
+    }
+}

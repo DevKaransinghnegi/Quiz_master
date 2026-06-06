@@ -2,10 +2,7 @@
 
 A robust, data-driven web application built to demonstrate full-stack development capabilities. This project features a secure dynamic architecture where quiz questions, choices, and user scores are stored and managed through a MySQL database.
 
-## 📸 Screenshots
 
-### Dashboard / Quiz Interface
-![Quiz Home](Screenshot 2026-06-06 195251.png)
 
 ## 🛠️ Full-Stack Skills Demonstrated
 

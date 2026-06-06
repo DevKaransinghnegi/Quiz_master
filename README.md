@@ -5,10 +5,7 @@ A robust, data-driven web application built to demonstrate full-stack developmen
 ## 📸 Screenshots
 
 ### Dashboard / Quiz Interface
-![Quiz Home](./screenshots/quiz-home.png)
-
-### Results / Analytics Page
-![Quiz Results](./screenshots/quiz-results.png)
+![Quiz Home](Screenshot 2026-06-06 195251.png)
 
 ## 🛠️ Full-Stack Skills Demonstrated
 

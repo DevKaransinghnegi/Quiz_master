@@ -74,14 +74,64 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
         </div>
-
         <div class="buttons">
-            <a href="Quiz.php" class="back-btn">🏠 Back to Dashboard</a>
-            <a href="quiz-details.php?id=1" class="retake-btn">🔄 Retake Quiz</a>
-        </div>
+    <a href="Quiz.php" class="back-btn">🏠 Back to Dashboard</a>
+    <a href="quiz-details.php?id=<?php echo $quiz_id; ?>" class="retake-btn">🔄 Retake Quiz</a>
+    
 
-    </div>
+    <button type="button" id="sendMailBtn" onclick="sendEmailResult()" class="mail-btn">
+        📧 Send Result on My Mail
+    </button>
 </div>
 
+
+<p id="mailStatus" style="margin-top: 15px; font-weight: bold;"></p>
+    </div>
+</div>
+<script>
+function sendEmailResult() {
+    const btn = document.getElementById('sendMailBtn');
+    const statusMsg = document.getElementById('mailStatus');
+
+    // बटन को डिसेबल करें ताकि यूजर बार-बार क्लिक न करे
+    btn.disabled = true;
+    btn.innerText = "⏳ Sending Mail...";
+    statusMsg.style.color = "#555";
+    statusMsg.innerText = "Please wait, sending your email...";
+
+    // POST डेटा तैयार करें
+    const formData = new FormData();
+    formData.append('quiz_title', '<?php echo addslashes($quiz_title); ?>');
+    formData.append('score', '<?php echo $score; ?>');
+    formData.append('total', '<?php echo $total; ?>');
+    formData.append('percentage', '<?php echo $percentage; ?>');
+    formData.append('status', '<?php echo $status; ?>');
+
+    // Backend PHP फाइल को AJAX रिक्वेस्ट भेजना
+    fetch('send_result_mail.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data.status === 'success') {
+            statusMsg.style.color = "green";
+            statusMsg.innerText = "✅ " + data.message;
+            btn.innerText = "✓ Mail Sent!";
+        } else {
+            statusMsg.style.color = "red";
+            statusMsg.innerText = "❌ " + data.message;
+            btn.disabled = false;
+            btn.innerText = "📧 Send Result on My Mail";
+        }
+    })
+    .catch(error => {
+        statusMsg.style.color = "red";
+        statusMsg.innerText = "❌ Something went wrong. Please try again.";
+        btn.disabled = false;
+        btn.innerText = "📧 Send Result on My Mail";
+    });
+}
+</script>
 </body>
 </html>
